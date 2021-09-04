@@ -7,21 +7,20 @@ const restaurantSchema = new Schema({
         unique:true,
         required: true,
     },
-    Description:{
+    description:{
         type:String,
         unique:true,
         required: true,
     },
-    _burgerReviews:{
-        type:Schema.Types.ObjectId,
-        ref:"Burger"
-    },
-    location:{
+    //location:{
 
-    },
+//    },
     avatar:{type:String},
-
-
+    _owner: {
+        type:Schema.Types.ObjectId,
+        ref: "User",
+        required: true
+    }
 },{timestamps:true}) 
 
 

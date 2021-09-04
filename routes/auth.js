@@ -3,6 +3,8 @@ const bcrypt = require("bcrypt");
 const User = require("../models/User")
 const passport = require("../helpers/passport");
 const router = Router();
+const uploader = require("../helpers/multer");
+
 
 
 router.post("/signup",async (req,res,next)=>{
@@ -42,12 +44,14 @@ router.post("/login",(req,res,next)=>{
             if(err){
                 return res.status(500).json({ error: err })
             }
+            req.user=user
             res.status(200).json({result:user})
         })
     })(req,res,next)
 });
 
 router.get("/logout",(req,res)=>{
+    req.user={}
     req.logout()
     res.status(200).json({msg:"Saliendo"})
 })
