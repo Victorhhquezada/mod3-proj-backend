@@ -17,22 +17,33 @@ const burgerSchema = new Schema({
     meat:{
         type: Number, 
         enum: [1,2,3,4,5],
+        default:1
     },
     bread:{
         type: Number, 
         enum: [1,2,3,4,5],
+        default:1
     },
     cheese:{
         type: Number, 
         enum: [1,2,3,4,5],
+        default:1
     },
     toppings:{
         type: Number, 
         enum: [1,2,3,4,5],
+        default:1
     },
     fries:{
         type: Number, 
         enum: [1,2,3,4,5],
+        default:1
+    },
+    comment:{
+        type:String,
+    },
+    restaurantbyname:{
+        type:String
     },
     picture:{type:String,
     default: "https://res.cloudinary.com/arenagoodgame/image/upload/v1630775685/burgers/tkcgcvkijjf3e5pb9z2c.jpg"}, 
