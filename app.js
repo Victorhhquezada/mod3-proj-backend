@@ -33,7 +33,7 @@ const app = express();
 
 app.use(
     cors({
-        origin:["http://localhost:3000","https://brgrclub.herokuapp.com/"],
+        origin:["http://localhost:3000","https://brgrclub.herokuapp.com/", "https://brgrclub.netlify.app/"],
         credentials:true
     })
 );
