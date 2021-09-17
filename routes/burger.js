@@ -7,7 +7,8 @@ const uploader = require("../helpers/multer");
 //CREATE
 router.post("/createburger",uploader.single("picture"),(req,res,next)=>{
 
-
+    const {_owner, ...restbody} = req.body
+    const {_id} =req.user
     console.log(req.file)
 
     let picture
@@ -15,7 +16,7 @@ router.post("/createburger",uploader.single("picture"),(req,res,next)=>{
         picture = req.file.path
     }
   
-    Burger.create({...req.body, picture})
+    Burger.create({...restbody, picture,_owner:_id})
     .then(burger=> {
         res.status(201).json({burger});
      })
