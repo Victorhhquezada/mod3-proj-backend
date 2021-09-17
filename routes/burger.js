@@ -25,6 +25,7 @@ router.post("/createburger",uploader.single("picture"),(req,res,next)=>{
 
 //READ
 router.get('/allburgers', function(req, res, next){
+    console.log (req.user)
     Burger.find()
     .then(burgers=> res.status(201).json({burgers}))
     .catch(error => res.status(400).json(error))
